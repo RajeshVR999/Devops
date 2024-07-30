@@ -18,3 +18,4 @@
   ansible.builtin.copy:
     src: /tmp/frontend-main/static/
     dest: /usr/share/ngnix/html/
+    remote_src: yes
