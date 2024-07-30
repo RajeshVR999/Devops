@@ -4,9 +4,9 @@
     state: present
 
 - name: download and extract the frontend file
-  ansible.builtin.get_url:
-    url: "https://github.com/stans-robot-project/frontend/archive/main.zip"
-    dest: "/tmp"
+  ansible.builtin.unarchive:
+    src: https://github.com/stans-robot-project/frontend/archive/main.zip
+    dest: /tmp
     remote_src: yes
 
 - name: delete the file from nginx index.html
