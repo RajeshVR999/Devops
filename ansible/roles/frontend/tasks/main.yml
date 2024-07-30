@@ -2,3 +2,19 @@
   ansible.builtin.package:
     name: nginx
     state: present
+
+- name: download and extract the frontend file   
+  ansible.builtin.unarchive:
+    src: curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+    dest: /tmp
+    remote_src: yes
+
+- name: delete the file from nginx index.html
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: copy the fronent file to nginx path
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/static/
+    dest: /usr/share/ngnix/html/
