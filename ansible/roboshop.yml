@@ -2,4 +2,3 @@
   hosts: frontend
   roles:
      - frontend
-     - catalogue 
