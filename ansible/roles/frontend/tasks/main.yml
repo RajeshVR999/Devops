@@ -22,7 +22,7 @@
 
 - name: copying roboshop configuration files
   ansible.builtin.copy:
-    src: localhost.conf
+    src: /tmp/frontend-main/localhost.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
 - name: restarting the nginx
