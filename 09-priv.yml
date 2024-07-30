@@ -5,4 +5,4 @@
     - name: copy file to destination
       ansible.buitin.copy:
        src: inv 
-       dest: /home/ec2-user/
+       dest: /home/ec2-user/hosts
