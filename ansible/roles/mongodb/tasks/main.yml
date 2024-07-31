@@ -29,9 +29,11 @@
 - name: Load catalogue Schema
   community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/catalogue.js"
-    idempotent: no
+    idempotent: yes
+    ignore_errors: yes
 
 - name: Load users Schema 
   community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/users.js"
     idempotent: yes
+    ignore_errors: yes
