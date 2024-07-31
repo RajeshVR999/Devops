@@ -1,5 +1,5 @@
 # This file contains all the tasks relates to nodejs components
-- name: Configure the yum /etc/yum.repos.d/mongodb.repo
+- name: Configure the yum repos
   ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
 
 - name: Install NojesJS + GCC-C++
@@ -30,7 +30,7 @@
     dest: /home/roboshop/{{COMPONENT}}/
     remote_src: yes
   become_user: roboshop
-    
+
 
 
   
