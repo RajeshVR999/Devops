@@ -28,11 +28,9 @@
 
 - name: Load catalogue Schema
   community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/catalogue.js"
+    file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
-
-- name: Load users Schema 
-  community.mongodb.mongodb_shell:
-    file: "/tmp/mongodb-main/users.js"
-    idempotent: yes
+  loop:
+    - catalogue
+    - users
     
