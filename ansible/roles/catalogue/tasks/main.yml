@@ -1,0 +1,36 @@
+# This file contains all the tasks relates to nodejs components
+- name: Configure the yum /etc/yum.repos.d/mongodb.repo
+  ansible.builtin.shell: curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
+
+- name: Install NojesJS + GCC-C++
+  ansible.builtin.yum:
+    name: "{{item}}"
+  loop:
+    - nodejs
+    - gcc-c++
+
+- name: Creating roboshop user account
+  ansible.builtin.user:
+    name: roboshop
+    comment: roboshoop project application user
+
+- name: Download and unarchive
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+- name: Deleting old content
+  ansible.builtin.file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: absent
+
+- name: Copy the file to destination
+  ansible.builtin.copy:
+    src: /tmp/{{COMPONENT}}--main/
+    dest: /home/roboshop/{{COMPONENT}}/
+    remote_src: yes
+  become_user: roboshop
+    
+
+
+  
