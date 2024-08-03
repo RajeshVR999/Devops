@@ -41,11 +41,11 @@
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
 - name: Restart the nginx
-  ansible.builtin.service:
-    name: nginx
-    state: restart
-    enabled: yes
-    
+  ansible.builtin.systemd:
+    state: restarted
+    deamon_reload: yes
+    name: "{{COMPONENT}}"
+
 
   
 
