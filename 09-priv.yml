@@ -1,8 +1,0 @@
-- name: Demo on privilege
-  hosts: all
-  become: yes 
-  tasks :
-    - name: copy file to destination
-      ansible.buitin.copy:
-       src: inv 
-       dest: /home/ec2-user/hosts
