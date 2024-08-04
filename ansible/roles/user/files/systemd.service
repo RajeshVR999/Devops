@@ -1,11 +1,11 @@
 [unit]
-Description = catalogue Service
+Description = user Service
 [Service]
 User=roboshop
 Environment=MONGO=true
 Environment=MONGO_URL="mongodb://ip-172-31-18-17.ap-southeast-1.compute.internal:27017/catalogue"
-ExecStart=/bin/node /home/roboshop/catalogue/server.js
-SyslogIdentifier=catalogue
+ExecStart=/bin/node /home/roboshop/user/server.js
+SyslogIdentifier=user
 
 [Install]
 WantedBy=multi-user.target

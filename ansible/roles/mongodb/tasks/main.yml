@@ -38,4 +38,9 @@
   loop:
     - catalogue
     - users
+
+- name: Setting up hostname
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: set-hostname
     
