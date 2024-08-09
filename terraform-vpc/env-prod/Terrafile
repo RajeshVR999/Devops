@@ -1,0 +1,3 @@
+tf-aws-vpc:
+    source:  "git@github.com/RajeshVR999/tf-module-vpc.git"
+    version: "main"
